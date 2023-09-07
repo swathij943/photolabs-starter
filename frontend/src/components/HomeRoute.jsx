@@ -6,6 +6,7 @@ import '../styles/HomeRoute.scss';
 const HomeRoute = (props) => {
 
   const [likes, setLikes] = useState(["1","7","3"]);
+
   const addRemoveLike = function(id) {
     setLikes((prevLikes) => {
       if (prevLikes.includes(id)) {
@@ -17,15 +18,14 @@ const HomeRoute = (props) => {
   };
 
 
-  const isFavPhotoExist = likes.length > 0 ? true : false;
+  const isFavPhotoExist = likes.length > 0 ? true : false; //a condition to whether show a notification
 
-
-  const { photos, topics } = props;
+  const { photos, topics, isModalOpen, setIsModalOpen } = props;
 
   return (
     <div className="home-route">
       <TopNavigation isFavPhotoExist={isFavPhotoExist} topics={topics} />
-      <PhotoList photos={photos} likes={likes} addRemoveLike={addRemoveLike} />
+      <PhotoList photos={photos} likes={likes} addRemoveLike={addRemoveLike} setIsModalOpen={setIsModalOpen} />
     </div>
   );
 }

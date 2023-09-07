@@ -15,7 +15,7 @@ const TopNavigation = (props) => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const threshold = 100;
+      const threshold = 50;
       setIsAtTop(scrollTop <= threshold);
     };
 
@@ -26,7 +26,7 @@ const TopNavigation = (props) => {
   }, []);
 
   return (
-   <div className={`top-nav-bar fixed top-0 left-0 right-0 z-50 ${isAtTop ? 'bg-white' : 'bg-opacity-75 bg-white'}`}>
+    <div className={`top-nav-bar fixed top-0 left-0 right-0 z-40 ${isAtTop ? 'bg-white' : 'bg-opacity-75 bg-white'}`}>
       <span className="top-nav-bar__logo mt-2">PhotoLabs</span>
       <div className="flex flex-row items-center mr-6">
 

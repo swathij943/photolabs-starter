@@ -7,11 +7,11 @@ import '../styles/PhotoListItem.scss';
 
 const PhotoListItem = (props) => {
 
-  const { id, location, urls, username, user, addRemoveLike, isLikes } = props;
+  const { id, location, urls, username, user, addRemoveLike, isLikes, setIsModalOpen} = props;
 
   return (
     
-    <li className="card photo-list__item m-auto" key={id}>
+    <li className="card photo-list__item m-auto" key={id} onClick={() => setIsModalOpen(true)}>
       <PhotoFavButton isLikes={isLikes} addRemoveLike={addRemoveLike} id={id} />
       <img className="card-img photo-list__image" src={urls.regular} alt="" />
        <div className="card-body photo-list__user-details p-2">
