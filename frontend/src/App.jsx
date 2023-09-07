@@ -56,10 +56,10 @@ const App = () => {
     });
   };
 
-  const openModal = (id, location, urls, user, isLikes) => {
+  const openModal = (id, location, urls, user) => {
     setIsModalOpen(true);
     setSelectedImage((prev) => {
-      return {...prev, id, location, urls, user, isLikes};
+      return {...prev, id, location, urls, user};
     });
   };
   const closeModal = () => {
@@ -67,7 +67,7 @@ const App = () => {
   };
   return (
     <div className="App">
-      <PhotoDetailsModal isModalOpen={isModalOpen} closeModal={closeModal} selectedImg={selectedImg} />
+      <PhotoDetailsModal likes={likes} addRemoveLike={addRemoveLike} isModalOpen={isModalOpen} closeModal={closeModal} selectedImg={selectedImg} />
       <HomeRoute likes={likes} setLikes={setLikes} addRemoveLike={addRemoveLike} photos={photos} topics={topics} openModal={openModal} />
     </div>
   );

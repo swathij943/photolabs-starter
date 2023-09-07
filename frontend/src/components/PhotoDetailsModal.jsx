@@ -6,8 +6,10 @@ import '../styles/PhotoDetailsModal.scss';
 
 export const PhotoDetailsModal = (props) => {
   console.log('props', props);
-  const { isModalOpen, closeModal, selectedImg } = props;
-  const { id, location, urls, user, isLikes } = selectedImg;
+  const { isModalOpen, closeModal, selectedImg, addRemoveLike, likes } = props;
+  const { id, location, urls, user } = selectedImg;
+
+  const isLikes = likes.includes(id) ? true : false;
   return (
     <div className={`photo-details-modal z-50 ${isModalOpen ? '' : 'hidden'}`}>
         <button className='photo-details-modal__close-button' onClick={closeModal}>
@@ -24,7 +26,7 @@ export const PhotoDetailsModal = (props) => {
         </svg>
       </button>
       <div className="card">
-        <PhotoFavButton />
+      <PhotoFavButton isLikes={isLikes} addRemoveLike={addRemoveLike} id={id} />
         <img className="card-img photo-details-modal__image" src={urls.full} alt="" />
         <div className="p-2 photo-details-modal__user-details">
           <img className="photo-details-modal__user-profile" src={user.profile} alt="" />
