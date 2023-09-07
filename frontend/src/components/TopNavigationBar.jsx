@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import TopicList from './TopicList';
 
@@ -10,15 +10,30 @@ const TopNavigation = (props) => {
 
   const { topics, isFavPhotoExist } = props;
 
+  const [isAtTop, setIsAtTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const threshold = 100;
+      setIsAtTop(scrollTop <= threshold);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="top-nav-bar">
-      <span className="top-nav-bar__logo">PhotoLabs</span>
+   <div className={`top-nav-bar fixed top-0 left-0 right-0 z-50 ${isAtTop ? 'bg-white' : 'bg-opacity-75 bg-white'}`}>
+      <span className="top-nav-bar__logo mt-2">PhotoLabs</span>
       <div className="flex flex-row items-center mr-6">
 
-<TopicList topics={topics} /> {/*TopicList should be getting an array of topics. else, defaults are used */}
-<FavBadge isFavPhotoExist={isFavPhotoExist} />
-</div>
-</div>  
+      <TopicList topics={topics} />
+        <FavBadge isFavPhotoExist={isFavPhotoExist} />
+        </div>
+        </div>  
   )
 }
 

@@ -3,11 +3,12 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 8px;
+  padding-top: 12px;
   align-items: center;
   -webkit-box-shadow: 0 4px 6px -6px #222;
   -moz-box-shadow: 0 4px 6px -6px #222;
   box-shadow: 0 4px 6px -6px #222;
-  height: 72px;
+  height: 52px;
 }
 
 .top-nav-bar__logo {
@@ -17,4 +18,12 @@
   color: #111;
   text-underline-position: auto;
   margin-left: 24px;
+}
+
+.top-nav-bar {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.bg-opacity-90 {
+  background-color: rgba(255, 255, 255, 0.9); 
 }

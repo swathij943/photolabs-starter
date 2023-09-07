@@ -6,10 +6,11 @@ const TopicListItem = (props) => {
   const { id, slug, title } = props
 
   return(
-  <div className="topic-list__item" key={slug}>
+    <div className="topic-list__item cursor-pointer" key={slug}>
     <span>{title}</span>
   </div>)
 }
+
 
 TopicListItem.defaultProps =   {
   "id": "1",
