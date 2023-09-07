@@ -2,16 +2,16 @@ import React from 'react';
 
 import PhotoFavButton from './PhotoFavButton';
 import PhotoList from './PhotoList';
-import photos from '../mocks/photos';
 import '../styles/PhotoDetailsModal.scss';
 
 export const PhotoDetailsModal = (props) => {
-  console.log('props', props);
+  
   const { isModalOpen, closeModal, openModal, selectedImg, addRemoveLike, likes } = props;
-  const { id, location, urls, user, similar_photos } = selectedImg;
 
   const isLikes = likes.includes(id) ? true : false;
   const photoListClass = "pt-6 grid grid-cols-2 gap-2";
+
+  const similar_photosArrObj = Object.values(selectedImg.similar_photos)
 
   return (
     <div className={`px-4 photo-details-modal z-50 ${isModalOpen ? '' : 'hidden'}`}>
@@ -41,7 +41,7 @@ export const PhotoDetailsModal = (props) => {
           </div>
         </div>
       </div>
-      <PhotoList photoListClass={photoListClass} photos={similar_photos} likes={likes} addRemoveLike={addRemoveLike} openModal={openModal} />
+       <PhotoList photoListClass={photoListClass} photos={similar_photosArrObj} likes={likes} addRemoveLike={addRemoveLike} openModal={openModal} />
     </div>
   );
 };
