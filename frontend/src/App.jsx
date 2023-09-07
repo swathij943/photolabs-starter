@@ -22,26 +22,56 @@ import './App.scss';
 
 
 const App = () => {
+
+  const initialSelectedImgState = {
+    id: ``,
+    location: {
+      city: ``,
+      country: ``
+    },
+    urls: {
+      full: ``,
+      regular: ``
+    },
+    user: {
+      id: ``,
+      username: ``,
+      name: ``,
+      profile: ``
+    },
+    isLikes: false
+  }
+
+  const [likes, setLikes] = useState(["1","7","3"]);
+  const [selectedImg, setSelectedImage] = useState(initialSelectedImgState);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [selectedImg, setSelectedImage] = useState('');
+  const addRemoveLike = function(id) {
+    setLikes((prevLikes) => {
+      if (prevLikes.includes(id)) {
+        return prevLikes.filter(likeId => likeId !== id);
+      } else {
+        return [...prevLikes, id];
+      }
+    });
+  };
 
-  const openModal = (photoURL) => {
-    setIsModalOpen(true)
-    setSelectedImage(photoURL)
-    console.log('selected url', photoURL);
-  }
-
+  const openModal = (id, location, urls, user, isLikes) => {
+    setIsModalOpen(true);
+    setSelectedImage((prev) => {
+      return {...prev, id, location, urls, user, isLikes};
+    });
+  };
   const closeModal = () => {
-    setIsModalOpen(false)
-  }
-
+    setIsModalOpen(false);
+  };
   return (
     <div className="App">
       <PhotoDetailsModal isModalOpen={isModalOpen} closeModal={closeModal} selectedImg={selectedImg} />
-      <HomeRoute photos={photos} topics={topics} openModal={openModal} />
+      <HomeRoute likes={likes} setLikes={setLikes} addRemoveLike={addRemoveLike} photos={photos} topics={topics} openModal={openModal} />
     </div>
   );
 };
 
+  
 export default App;

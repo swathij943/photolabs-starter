@@ -5,22 +5,22 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
 
-  const [likes, setLikes] = useState(["1","7","3"]);
+  // const [likes, setLikes] = useState(["1","7","3"]);
 
-  const addRemoveLike = function(id) {
-    setLikes((prevLikes) => {
-      if (prevLikes.includes(id)) {
-        return prevLikes.filter(likeId => likeId !== id);
-      } else {
-        return [...prevLikes, id];
-      }
-    });
-  };
+  // const addRemoveLike = function(id) {
+  //   setLikes((prevLikes) => {
+  //     if (prevLikes.includes(id)) {
+  //       return prevLikes.filter(likeId => likeId !== id);
+  //     } else {
+  //       return [...prevLikes, id];
+  //     }
+  //   });
+  // };
 
+
+  const { photos, topics, openModal, likes, addRemoveLike } = props;
 
   const isFavPhotoExist = likes.length > 0 ? true : false; //a condition to whether show a notification
-
-  const { photos, topics, openModal } = props;
 
   return (
     <div className="home-route">
