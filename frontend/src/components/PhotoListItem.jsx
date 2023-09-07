@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import PhotoFavButton from './PhotoFavButton';
 
-import "../styles/PhotoListItem.scss";
+import '../styles/PhotoListItem.scss';
 
-
-// PhotoListItem
+//PhotoListItem
 
 const PhotoListItem = (props) => {
   const [likes, setLikes] = useState(false);
   const { id, location, urls, username, user } = props;
-
   const toggleLike = function() {
     if (likes) {
       setLikes(false);
@@ -20,10 +18,11 @@ const PhotoListItem = (props) => {
   };
 
   return (
-    <div className="photo-list__item" key={id}>
+    
+    <div className="card photo-list__item" key={id}>
       <PhotoFavButton likes={likes} toggleLike={toggleLike} />
-      <img className="photo-list__image" src={urls.regular} alt="" />
-      <div className="photo-list__user-details">
+      <img className="card-img photo-list__image" src={urls.regular} alt="" />
+      <div className="card-body photo-list__user-details">
         <img className="photo-list__user-profile" src={user.profile} alt="" />
         <div className="profile-info photo-list__user-info">
           <h1>{username}</h1>
@@ -33,7 +32,6 @@ const PhotoListItem = (props) => {
     </div>
   );
 };
-
 PhotoListItem.defaultProps = {
   "id": "1",
   "location": {
@@ -44,6 +42,4 @@ PhotoListItem.defaultProps = {
   "username": "Joe Example",
   "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
 };
-
-
 export default PhotoListItem;
