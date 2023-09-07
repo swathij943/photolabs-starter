@@ -59,7 +59,7 @@ const App = () => {
   };
   return (
     <div className="App">
-      <PhotoDetailsModal likes={likes} addRemoveLike={addRemoveLike} isModalOpen={isModalOpen} closeModal={closeModal} selectedImg={selectedImg} />
+       <PhotoDetailsModal likes={likes} addRemoveLike={addRemoveLike} isModalOpen={isModalOpen} closeModal={closeModal} selectedImg={selectedImg} openModal={openModal} />
       <HomeRoute likes={likes} setLikes={setLikes} addRemoveLike={addRemoveLike} photos={photos} topics={topics} openModal={openModal} />
     </div>
   );
