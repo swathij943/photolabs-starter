@@ -6,21 +6,13 @@ import '../styles/PhotoListItem.scss';
 //PhotoListItem
 
 const PhotoListItem = (props) => {
-  const [likes, setLikes] = useState(false);
-  const { id, location, urls, username, user } = props;
-  const toggleLike = function() {
-    if (likes) {
-      setLikes(false);
-    } else {
-      setLikes(true);
-    }
-    console.log('toggled to ', likes);
-  };
+
+  const { id, location, urls, username, user, addRemoveLike, isLikes } = props;
 
   return (
     
     <li className="card photo-list__item m-auto" key={id}>
-      <PhotoFavButton likes={likes} toggleLike={toggleLike} />
+      <PhotoFavButton isLikes={isLikes} addRemoveLike={addRemoveLike} id={id} />
       <img className="card-img photo-list__image" src={urls.regular} alt="" />
        <div className="card-body photo-list__user-details p-2">
         <img className="photo-list__user-profile" src={user.profile} alt="" />

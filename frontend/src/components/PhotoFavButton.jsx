@@ -4,13 +4,15 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
-  const { likes, toggleLike} = props;
-  const fill = likes ? '#C80000' : '#EEEEEE';
+  const { isLikes, addRemoveLike, id } = props;
+  const fill = isLikes ? '#C80000' : '#EEEEEE';
 
   return (
-    <div className="photo-list__fav-icon" onClick={toggleLike}>
+    <div className="photo-list__fav-icon" onClick={() => {
+      addRemoveLike(id);
+    }}>
       <div className="photo-list__fav-icon-svg">
-      <FavIcon fill={fill} />
+        <FavIcon fill={fill} />
       </div>
     </div>
   );

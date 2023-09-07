@@ -4,10 +4,11 @@ import PhotoListItem from './PhotoListItem';
 import "../styles/PhotoList.scss";
 
 const PhotoList = (props) => {
-  const { photos } = props;
+  const { photos, addRemoveLike, likes } = props;
 
   const listPhotos = photos.map(photo => {
-    return <PhotoListItem {...photo} key={photo.id} />
+    const isLikes = likes.includes(photo.id) ? true : false;
+    return <PhotoListItem isLikes={isLikes} {...photo} key={photo.id} addRemoveLike={addRemoveLike} />
   });
 
   return (<ul className="photo-list grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 p-4">
