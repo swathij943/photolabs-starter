@@ -7,7 +7,7 @@ const TopicListItem = (props) => {
 
   return(
   <div className="topic-list__item" key={slug}>
-    {title}
+    <span>{title}</span>
   </div>)
 }
 

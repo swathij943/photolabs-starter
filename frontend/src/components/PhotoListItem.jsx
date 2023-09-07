@@ -19,7 +19,7 @@ const PhotoListItem = (props) => {
 
   return (
     
-    <div className="card photo-list__item" key={id}>
+    <li className="card photo-list__item m-auto" key={id}>
       <PhotoFavButton likes={likes} toggleLike={toggleLike} />
       <img className="card-img photo-list__image" src={urls.regular} alt="" />
       <div className="card-body photo-list__user-details">
@@ -29,9 +29,10 @@ const PhotoListItem = (props) => {
           <h2 className="photo-list__user-location">{location.city}, {location.country}</h2>
         </div>
       </div>
-    </div>
+    </li>
   );
 };
+
 PhotoListItem.defaultProps = {
   "id": "1",
   "location": {
@@ -42,4 +43,5 @@ PhotoListItem.defaultProps = {
   "username": "Joe Example",
   "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
 };
+
 export default PhotoListItem;

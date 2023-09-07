@@ -10,12 +10,10 @@ const PhotoList = (props) => {
     return <PhotoListItem {...photo} key={photo.id} />
   });
 
-  return (<ul className="photo-list">
+  return (<ul className="photo-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
     {listPhotos}
   </ul>);
 };
-
-
 PhotoList.defaultProps = {
   photos: [
     {

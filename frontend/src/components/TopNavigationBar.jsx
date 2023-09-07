@@ -10,7 +10,7 @@ const TopNavigation = () => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <div>
+      <div className="flex flex-row items-center mr-6">
 
 <TopicList /> {/*TopicList should be getting an array of topics. else, defaults are used */}
 <FavBadge />
