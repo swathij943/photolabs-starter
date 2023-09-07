@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <PhotoDetailsModal isModalOpen={isModalOpen} />
+      <PhotoDetailsModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       <HomeRoute photos={photos} topics={topics} setIsModalOpen={setIsModalOpen} />
     </div>
   );

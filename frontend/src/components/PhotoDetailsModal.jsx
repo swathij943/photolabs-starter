@@ -3,10 +3,10 @@ import React from 'react';
 import '../styles/PhotoDetailsModal.scss';
 
 export const PhotoDetailsModal = (props) => {
-  const { isModalOpen } = props;
+  const { isModalOpen, setIsModalOpen } = props;
   return (
     <div className={`photo-details-modal z-50 ${isModalOpen ? '' : 'hidden'}`}>
-      <button className='photo-details-modal--close-button'>
+      <button className='photo-details-modal--close-button' onClick={() => {setIsModalOpen(false)}}>
         <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clipPath="url(#clip0_428_287)">
             <path d="M14.0625 3.9375L3.9375 14.0625" stroke="black" strokeLinecap="round" strokeLinejoin="round" />
