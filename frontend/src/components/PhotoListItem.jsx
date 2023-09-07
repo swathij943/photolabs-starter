@@ -7,12 +7,12 @@ import '../styles/PhotoListItem.scss';
 
 const PhotoListItem = (props) => {
 
-  console.log('waldo', props);
-  const { id, location, urls, user, addRemoveLike, isLikes, likes, openModal} = props;
+  const { id, location, urls, user, addRemoveLike, isLikes, likes, openModal, similar_photos} = props;
+  console.log('ssss', similar_photos);
   return (
     <li className="card photo-list__item m-auto bg-white" key={id}>
       <PhotoFavButton isLikes={isLikes} addRemoveLike={addRemoveLike} id={id} />
-      <img className="card-img photo-list__image" src={urls.regular} alt="" onClick={() => openModal(id, location, urls, user)} />
+      <img className="card-img photo-list__image" src={urls.regular} alt="" onClick={() => openModal(id, location, urls, user, Object.values(similar_photos))} />
       <div className="card-body photo-list__user-details p-2">
         <img className="photo-list__user-profile" src={user.profile} alt="" />
         <div className="profile-info photo-list__user-info">

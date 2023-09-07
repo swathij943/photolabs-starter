@@ -5,9 +5,12 @@
   top: 55%;
   left: 50%;
   transform: translate(-50%, -40%);
-  //overflow-y: scroll;
   height: fit-content;
   border-radius: 12px;
+  
+  .photo-list__item {
+    max-width: 300px;
+  }
 }
 
 .photo-details-modal__close-button {
