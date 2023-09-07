@@ -20,12 +20,12 @@ const HomeRoute = (props) => {
 
   const isFavPhotoExist = likes.length > 0 ? true : false; //a condition to whether show a notification
 
-  const { photos, topics, isModalOpen, setIsModalOpen } = props;
+  const { photos, topics, openModal } = props;
 
   return (
     <div className="home-route">
       <TopNavigation isFavPhotoExist={isFavPhotoExist} topics={topics} />
-      <PhotoList photos={photos} likes={likes} addRemoveLike={addRemoveLike} setIsModalOpen={setIsModalOpen} />
+      <PhotoList photos={photos} likes={likes} addRemoveLike={addRemoveLike} openModal={openModal} />
     </div>
   );
 }
