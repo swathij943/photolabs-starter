@@ -1,10 +1,12 @@
 import React from 'react';
 
 // import PhotoListItem from './components/PhotoListItem';
-import PhotoList from './components/PhotoList';
+// import PhotoList from './components/PhotoList';
 
 // import TopicListItem from './components/TopicListItem';
-import TopicList from './components/TopicList';
+// import TopicList from './components/TopicList';
+
+import TopNavigation from './components/TopNavigationBar';
 
 import './App.scss';
 
@@ -13,13 +15,16 @@ import './App.scss';
 
 
 // const arrayPhotos = Array(3).fill(<PhotoListItem />);
+
 const App = () => (
+
   <div className="App">
     {/* <PhotoListItem/> */}
     {/* {arrayPhotos} */}
     {/* <PhotoList /> */}
     {/* <TopicListItem /> */}
-    <TopicList/>
+    {/* <TopicList/> */}
+    <TopNavigation/>
   </div>
 );
 
