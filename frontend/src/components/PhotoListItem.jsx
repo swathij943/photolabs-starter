@@ -10,7 +10,7 @@ const PhotoListItem = (props) => {
   console.log('waldo', props);
   const { id, location, urls, user, addRemoveLike, isLikes, likes, openModal} = props;
   return (
-    <li className="card photo-list__item m-auto" key={id}>
+    <li className="card photo-list__item m-auto bg-white" key={id}>
       <PhotoFavButton isLikes={isLikes} addRemoveLike={addRemoveLike} id={id} />
       <img className="card-img photo-list__image" src={urls.regular} alt="" onClick={() => openModal(id, location, urls, user)} />
       <div className="card-body photo-list__user-details p-2">

@@ -11,7 +11,7 @@ const PhotoList = (props) => {
     return <PhotoListItem isLikes={isLikes} likes={likes} {...photo} key={photo.id} addRemoveLike={addRemoveLike} openModal={openModal} />
   });
 
-  return (<ul className="pt-12 photo-list grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 p-4">
+  return (<ul className="photo-list pt-12 photo-list grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 p-4">
     {listPhotos}
   </ul>);
 };
