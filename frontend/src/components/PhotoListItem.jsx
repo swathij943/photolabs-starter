@@ -22,7 +22,7 @@ const PhotoListItem = (props) => {
     <li className="card photo-list__item m-auto" key={id}>
       <PhotoFavButton likes={likes} toggleLike={toggleLike} />
       <img className="card-img photo-list__image" src={urls.regular} alt="" />
-      <div className="card-body photo-list__user-details">
+       <div className="card-body photo-list__user-details p-2">
         <img className="photo-list__user-profile" src={user.profile} alt="" />
         <div className="profile-info photo-list__user-info">
           <h1>{username}</h1>

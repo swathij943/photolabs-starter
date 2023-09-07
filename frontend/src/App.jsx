@@ -6,7 +6,7 @@ import React from 'react';
 // import TopicListItem from './components/TopicListItem';
 // import TopicList from './components/TopicList';
 
-import TopNavigation from './components/TopNavigationBar';
+// import TopNavigation from './components/TopNavigationBar';
 
 import HomeRoute from './components/HomeRoute';
 
