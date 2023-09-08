@@ -1,6 +1,8 @@
 # Photolabs
 PhotoLabs is a React-based single-page application (SPA) that allows users to view photos in different contexts. We will use a pre-existing API to build a frontend user experience for users to interact with photos!
 
+The PhotoLabs project for the Lighthouse Web Development Flex Program. Focus full stack REACT prgraomming.
+
 ## Demo
 
 !["Filters"](https://github.com/swathij943/photolabs-starter/blob/master/category.gif)
