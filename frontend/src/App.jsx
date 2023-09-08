@@ -13,6 +13,21 @@ const App = () => {
   const { state, addRemoveLike, openModal, closeModal } = useApplicationData();
   const { likes, selectedImg, isModalOpen } = state;
 
+  const GET_PHOTOS = "http://localhost:8001/api/photos";
+  const GET_TOPICS = "http://localhost:8001/api/topics";
+
+  useEffect(() => {
+    fetch(GET_PHOTOS)
+      .then(res => res.json())
+      .then(data => setPhotos([...data]))
+      .catch(err=> console.log(err))
+
+    fetch(GET_TOPICS)
+      .then(res => res.json())
+      .then(data => setTopics([...data]))
+      .catch(err=> console.log(err))
+  }, []);
+
   return (
     <div className="App">
       <PhotoDetailsModal likes={likes} addRemoveLike={addRemoveLike} isModalOpen={isModalOpen} closeModal={closeModal} selectedImg={selectedImg} openModal={openModal} />
