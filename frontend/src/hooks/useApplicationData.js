@@ -24,7 +24,7 @@ const useApplicationData = () => {
   }
   
   const initialState = {
-    likes: ["1", "7", "3"],
+    likes: [],
     selectedImg: getInitialSelectedImgState(),
     isModalOpen: false
   };

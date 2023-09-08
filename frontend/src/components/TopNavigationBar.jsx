@@ -8,8 +8,7 @@ import '../styles/TopNavigationBar.scss'
 
 const TopNavigation = (props) => {
 
-  const { topics, isFavPhotoExist } = props;
-
+  const { topics, isFavPhotoExist, getPhotosByTopic } = props;
   const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
@@ -30,7 +29,7 @@ const TopNavigation = (props) => {
       <span className="top-nav-bar__logo mt-2">PhotoLabs</span>
       <div className="flex flex-row items-center mr-6">
 
-      <TopicList topics={topics} />
+      <TopicList topics={topics} getPhotosByTopic={getPhotosByTopic} />
         <FavBadge isFavPhotoExist={isFavPhotoExist} />
         </div>
         </div>  
