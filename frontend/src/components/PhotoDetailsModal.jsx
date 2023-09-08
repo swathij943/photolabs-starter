@@ -8,7 +8,7 @@ export const PhotoDetailsModal = (props) => {
   const isLikes = likes.includes(id) ? true : false;
 
   //tailwind css --> coming from modal
-  const photoListClass = "text-xs pt-1 grid grid-cols-2 xl:grid-cols-3 gap-2";
+  const photoListClass = "text-xs pt-1 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2";
 
   //Retrieve similar photos
   const similarPhotosId = similar_photos.map(photo => photo.id); //get the ids of similar photos to an array.
@@ -32,10 +32,8 @@ export const PhotoDetailsModal = (props) => {
           </svg>
         </button>
         <section className="card w-fit mx-auto mb-2">
-          <div className='w-fit m-auto'>
-            <PhotoFavButton isLikes={isLikes} addRemoveLike={addRemoveLike} id={id} />
-            <img className="card-img photo-details-modal__image" src={urls.full} alt="" />
-          </div>
+        <PhotoFavButton isLikes={isLikes} addRemoveLike={addRemoveLike} id={id} />
+          <img className="card-img photo-details-modal__image" src={urls.full} alt="" />
           <div className="p-2 photo-details-modal__user-details">
             <img className="photo-details-modal__user-profile" src={user.profile} alt="" />
             <div className="photo-details-modal__user-info">
