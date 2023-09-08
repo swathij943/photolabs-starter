@@ -1,12 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react'
-
-import FavIcon from './FavIcon';
+import React from 'react';
+import { FavIcon } from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
   const { isLikes, addRemoveLike, id } = props;
   const fill = isLikes ? '#C80000' : '#EEEEEE';
-
   return (
     <div className="photo-list__fav-icon" onClick={() => {
       addRemoveLike(id);
@@ -17,5 +15,4 @@ function PhotoFavButton(props) {
     </div>
   );
 }
-
 export default PhotoFavButton;

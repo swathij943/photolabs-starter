@@ -1,7 +1,8 @@
-import { useReducer } from "react";
+import { useReducer, useState, useEffect } from "react";
+import urls from "../env";
+
 
 const useApplicationData = () => {
-
   function getInitialSelectedImgState() {
     return {
       id: ``,
@@ -22,13 +23,13 @@ const useApplicationData = () => {
       similar_photos: []
     };
   }
-  
+
   const initialState = {
     likes: [],
     selectedImg: getInitialSelectedImgState(),
     isModalOpen: false
   };
-  
+
   const ACTIONS = {
     FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
     SET_PHOTO_DATA: 'SET_PHOTO_DATA',
@@ -36,7 +37,6 @@ const useApplicationData = () => {
     DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
     CLOSE_PHOTO_DETAILS: 'CLOSE_PHOTO_DETAILS'
   };
-
   function reducer(state, action) {
     switch (action.type) {
       case ACTIONS.FAV_PHOTO_ADDED:
@@ -46,7 +46,6 @@ const useApplicationData = () => {
             ? state.likes.filter(likeId => likeId !== action.payload)
             : [...state.likes, action.payload]
         };
-
       case ACTIONS.SET_PHOTO_DATA:
         return {
           ...state,
@@ -59,7 +58,6 @@ const useApplicationData = () => {
             similar_photos: action.payload.similar_photos
           }
         };
-
       case ACTIONS.SELECT_PHOTO:
         return {
           ...state,
@@ -81,20 +79,52 @@ const useApplicationData = () => {
   }
 
   const [state, dispatch] = useReducer(reducer, initialState);
+
+
+  const [photos, setPhotos] = useState([]);
+  const [topics, setTopics] = useState([]);
+
+
+  //URL requests
+  const { GET_PHOTOS, GET_TOPICS, GET_PHOTOS_BY_TOPICS } = urls;
+  useEffect(() => {
+    fetch(GET_PHOTOS)
+      .then(res => res.json())
+      .then(data => setPhotos([...data]))
+      .catch(err => console.log(err));
+
+    fetch(GET_TOPICS)
+      .then(res => res.json())
+      .then(data => setTopics([...data]))
+      .catch(err => console.log(err));
+
+  }, []);
+
+  const getPhotosByTopic = function(topicId) {
+    const endpoint = GET_PHOTOS_BY_TOPICS.replace(":topic_id", topicId);
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(data => setPhotos([...data]))
+      .catch(err => console.log(err));
+  };
+
+  //Dispatches
   const addRemoveLike = function(id) {
     dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: id });
   };
-
   const openModal = (id, location, urls, user, similar_photos) => {
     dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: { id, location, urls, user, similar_photos } });
     dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
   };
-
   const closeModal = () => {
     dispatch({type: ACTIONS.CLOSE_PHOTO_DETAILS});
   };
+
   return {
+    photos,
+    topics,
     state,
+    getPhotosByTopic,
     addRemoveLike,
     openModal,
     closeModal
