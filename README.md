@@ -8,6 +8,13 @@ Photolabs is a desktop application built with React, serving as a stock photo ga
 - Like Photos: Users can like a photo from anywhere within the application where the photo is displayed.
 - Liked Photos Notification: Users can view a heart icon with a notification in the navigation indicating the number of liked photos.
 
+## Preview
+
+!["Filters"](https://github.com/swathij943/photolabs-starter/blob/master/category.gif)
+
+
+!["Modals"](https://github.com/swathij943/photolabs-starter/blob/master/frontend-likes.gif)
+
 ## Setup
 
 Install dependencies with `npm install` in each respective `/frontend` and `/backend`.
