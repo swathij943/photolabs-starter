@@ -8,9 +8,10 @@ import '../styles/TopNavigationBar.scss'
 
 const TopNavigation = (props) => {
 
-  const { topics, isFavPhotoExist, getPhotosByTopic } = props;
+  const { topics, isFavPhotoExist, getPhotosByTopic, selectedTopic } = props;
   const [isAtTop, setIsAtTop] = useState(true);
 
+  //nav bar on scroll
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -29,7 +30,7 @@ const TopNavigation = (props) => {
       <span className="top-nav-bar__logo mt-2">PhotoLabs</span>
       <div className="flex flex-row items-center mr-6">
 
-      <TopicList topics={topics} getPhotosByTopic={getPhotosByTopic} />
+      <TopicList topics={topics} getPhotosByTopic={getPhotosByTopic} selectedTopic={selectedTopic} />
         <FavBadge isFavPhotoExist={isFavPhotoExist} />
         </div>
         </div>  

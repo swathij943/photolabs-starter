@@ -5,7 +5,6 @@ import '../styles/HomeRoute.scss';
 const HomeRoute = () => {
   return (
     <div className="home-route">
-      {/* Insert React */}
     </div>
   );
 };

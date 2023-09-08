@@ -5,7 +5,7 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
 
-  const { photos, topics, openModal, likes, addRemoveLike, getPhotosByTopic } = props;
+  const { photos, topics, openModal, likes, addRemoveLike, getPhotosByTopic, selectedTopic } = props;
 
   const isFavPhotoExist = likes.length > 0 ? true : false; //a condition to whether show a notification
 
@@ -13,7 +13,7 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      <TopNavigation isFavPhotoExist={isFavPhotoExist} topics={topics} getPhotosByTopic={getPhotosByTopic} />
+      <TopNavigation isFavPhotoExist={isFavPhotoExist} topics={topics} getPhotosByTopic={getPhotosByTopic} selectedTopic={selectedTopic} />
       <PhotoList photoListClass={photoListClass} photos={photos} likes={likes} addRemoveLike={addRemoveLike} openModal={openModal} />
     </div>
   );
