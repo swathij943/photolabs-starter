@@ -1,12 +1,8 @@
 import React from 'react';
 import PhotoFavButton from './PhotoFavButton';
-
 import '../styles/PhotoListItem.scss';
 
-//PhotoListItem
-
 const PhotoListItem = (props) => {
-
   const { id, location, urls, user, addRemoveLike, isLikes, likes, openModal, similar_photos} = props;
   return (
     <li className="card photo-list__item m-auto bg-white" key={id}>

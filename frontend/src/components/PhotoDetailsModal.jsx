@@ -2,12 +2,14 @@ import React from 'react';
 import PhotoFavButton from './PhotoFavButton';
 import PhotoList from './PhotoList';
 import '../styles/PhotoDetailsModal.scss';
+
+
 export const PhotoDetailsModal = (props) => {
   const { isModalOpen, closeModal, openModal, selectedImg, addRemoveLike, likes, photos } = props;
   const { id, location, urls, user, similar_photos } = selectedImg;
   const isLikes = likes.includes(id) ? true : false;
 
-  //tailwind css --> coming from modal
+  //tailwind css -> coming from modal
   const photoListClass = "text-xs pt-1 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2";
 
   //Retrieve similar photos
@@ -32,7 +34,7 @@ export const PhotoDetailsModal = (props) => {
           </svg>
         </button>
         <section className="card w-fit mx-auto mb-2">
-        <PhotoFavButton isLikes={isLikes} addRemoveLike={addRemoveLike} id={id} />
+          <PhotoFavButton isLikes={isLikes} addRemoveLike={addRemoveLike} id={id} />
           <img className="card-img photo-details-modal__image" src={urls.full} alt="" />
           <div className="p-2 photo-details-modal__user-details">
             <img className="photo-details-modal__user-profile" src={user.profile} alt="" />
@@ -50,4 +52,5 @@ export const PhotoDetailsModal = (props) => {
     </>
   );
 };
+
 export default PhotoDetailsModal;

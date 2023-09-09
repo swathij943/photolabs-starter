@@ -37,6 +37,7 @@ const useApplicationData = () => {
     DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
     CLOSE_PHOTO_DETAILS: 'CLOSE_PHOTO_DETAILS'
   };
+
   function reducer(state, action) {
     switch (action.type) {
       case ACTIONS.FAV_PHOTO_ADDED:
@@ -80,12 +81,13 @@ const useApplicationData = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-
+  
   const [photos, setPhotos] = useState([]);
   const [topics, setTopics] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState(0)
 
 
+  
   //URL requests
   const { GET_PHOTOS, GET_TOPICS, GET_PHOTOS_BY_TOPICS } = urls;
   useEffect(() => {
@@ -133,4 +135,5 @@ const useApplicationData = () => {
     closeModal
   };
 };
+
 export default useApplicationData;

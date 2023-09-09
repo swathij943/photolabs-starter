@@ -5,6 +5,7 @@ import PhotoDetailsModal from './components/PhotoDetailsModal';
 import './App.scss';
 
 const App = () => {
+
   const { photos, topics, selectedTopic, state, addRemoveLike, openModal, closeModal, getPhotosByTopic } = useApplicationData();
   const { likes, selectedImg, isModalOpen } = state;
 
@@ -26,8 +27,9 @@ const App = () => {
         selectedTopic={selectedTopic}
         openModal={openModal}
         getPhotosByTopic={getPhotosByTopic}
-        />
+      />
     </div>
   );
 };
+
 export default App;
